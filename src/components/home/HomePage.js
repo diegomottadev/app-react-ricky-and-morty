@@ -6,12 +6,12 @@ import { connect } from 'react-redux'
 
 let URL = "https://rickandmortyapi.com/api"
 
- function Home() {
+ function Home({chars}) {
 
     function renderCharacter() {
-        //let char = chars[0]
+        let char = chars[2]
         return (
-            <Card />
+            <Card {...char}/>
         )
     }
 
@@ -24,5 +24,12 @@ let URL = "https://rickandmortyapi.com/api"
         </div>
     )
 }
+//entrega todo el store a las props del componenter
+function mapState(state){
+    //que le saco a redux
+    return {
+        chars:state.characters.array
+    }
+}
 
-export default connect()(Home)
+export default connect(mapState)(Home)
