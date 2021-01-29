@@ -1,4 +1,5 @@
 import axios from "axios";
+import {updateDB} from '../firebase';
 
 let URL = "https://rickandmortyapi.com/api/character";
 
@@ -38,7 +39,9 @@ export default  function reducer (state= initialData,action){
 export let addFavoritesAction = () => (dispatch,getState) =>{
     let {array, favorites} = getState().characters;
     let char = array.shift(); //quita el elemento 0 del arreay
+    let {uid} = getState().user;
     favorites.push(char);
+    updateDB(favorites,uid);
     dispatch({
         type: ADD_TO_FAVORITES,
         //descontruir para colocar los nuevos elementos en el store

@@ -1,6 +1,8 @@
 import 'firebase/auth';
 import firebase from 'firebase/app';
 
+import 'firebase/firestore';
+
 let  firebaseConfig = {
     apiKey: "AIzaSyDM-mbut7ldNR7AN4LbW9ktK3-6KarxqrI",
     authDomain: "app-react-ricky-and-morty.firebaseapp.com",
@@ -11,6 +13,13 @@ let  firebaseConfig = {
   };
 
   firebase.initializeApp(firebaseConfig);
+
+
+  let db = firebase.firestore().collection('favs');
+
+  export function updateDB(array,uid){
+    return db.doc(uid).set({array});
+  }
 
   export function signOutGoolge(){
       firebase.auth().signOut();

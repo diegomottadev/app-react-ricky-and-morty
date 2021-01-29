@@ -13,10 +13,11 @@ let URL = "https://rickandmortyapi.com/api"
     }
 
     function renderCharacter() {
-        let char = chars[0]
+        let char = chars[2]
         return (
-            <Card rightClick={addFavorites} 
-                leftClick={nextCharacter} 
+            <Card   leftClick={nextCharacter} 
+                    rightClick={addFavorites} 
+
                 {...char}/>
         )
     }
