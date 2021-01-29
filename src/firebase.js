@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
 import 'firebase/auth';
+import firebase from 'firebase/app';
 
 let  firebaseConfig = {
     apiKey: "AIzaSyDM-mbut7ldNR7AN4LbW9ktK3-6KarxqrI",
@@ -12,8 +12,11 @@ let  firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
+  export function signOutGoolge(){
+      firebase.auth().signOut();
+  }
 
   export function loginWithGoogle(){
       let provider = new firebase.auth.GoogleAuthProvider()
-      return firebase.auth().signInWhitPopup(provider).then(snap => snap.user);
+      return firebase.auth().signInWithPopup(provider).then(snap => snap.user);
   }
