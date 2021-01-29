@@ -12,8 +12,12 @@ let URL = "https://rickandmortyapi.com/api"
         addFavoritesAction()
     }
 
+    function nextCharacter(){
+        removeCharacterAction();
+    }
+
     function renderCharacter() {
-        let char = chars[2]
+        let char = chars[0];
         return (
             <Card   leftClick={nextCharacter} 
                     rightClick={addFavorites} 
@@ -22,9 +26,7 @@ let URL = "https://rickandmortyapi.com/api"
         )
     }
 
-    function nextCharacter(){
-        removeCharacterAction();
-    }
+
 
     return (
         <div className={styles.container}>
@@ -39,7 +41,7 @@ let URL = "https://rickandmortyapi.com/api"
 function mapState(state){
     //que le saco a redux
     return {
-        chars:state.characters.array
+        chars: state.characters.array
     }
 }
 //le pasa las acciones mediante esta forma :removeCharacterAction y asi podemos usarlo como prop tmb    
