@@ -1,4 +1,4 @@
-#Goal of this project
+# Goal of this project
 
 The development of this project, along with the course tutor, was not only about learning how to use React and Redux together, but also about how to use hooks to achieve the implementation of these two tools in a single project
 
